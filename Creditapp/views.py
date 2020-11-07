@@ -50,24 +50,8 @@ def RevolvingCreditValue(request):
             total_rec_int=float(request.POST['total_rec_int'])
             tot_curr_bal=float(request.POST['tot_curr_bal'])
             features_list=[loan_amnt ,Rate_of_intrst,annual_inc,debt_income_ratio,numb_credit,total_credits,total_rec_int,tot_curr_bal]
-            #features = pd.DataFrame(np.array(features_list),columns=['loan_amnt','Rate_of_intrst','annual_inc','debt_income_ratio','numb_credit','total_credits','total_rec_int','tot_curr_bal'])
             features=np.array(features_list).reshape(-1,8)
             prediction_text = reg_dt.predict(features)
-            #import numpy as np    
-            #df = pd.DataFrame(np.array(your_data), columns=columns)
-            #features_list=[val for val in request.get.values().astype(float)]
-            #features = DataFrame (feature_List,columns=['loan_amnt','Rate_of_intrst','annual_inc','debt_income_ratio','numb_credit','total_credits','total_rec_int','tot_curr_bal'])
-            #features=features.reshape(-1, 1)
-            #features = pd.DataFrame(features)
-            # names = regressor.get_booster().feature_names
-            #prediction_text = regressor.predict(features)
-            #f_names = regressor.feature_names
-            #features = features[f_names]
-            ########prediction_text= reg_dt.predict(features)
-            #cols_when_model_builds = regressor.get_booster().feature_names
-            #prediction_text = prediction_text[cols_when_model_builds]
-            #prediction_text = reg_dt.predict(features)
-            #context = {"prediction_text" : prediction_text}
             return render(request, 'home.html', {"prediction_text" : prediction_text})
         else:
             return render(request, 'home.html')

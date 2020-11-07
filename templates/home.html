@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US"
+  <!--From https://codepen.io/frytyler/pen/EGdtg-->
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <title>Total Revolving Credit Amount Prediction Project</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+                     <!-- Styles -->
+    <style>
+      .heads {
+        background-image: url("{% static 'Background.jpg' %}");
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:20px;
+        padding-bottom:10px;
+      }
+      .head {
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:20px;
+        padding-bottom:10px;
+      }
+      .Heading {
+        padding: 10px;
+        margin-left:30px;
+        margin-right:30px;
+        text-align: center;
+        background-color: CadetBlue;
+        color: black;
+      }    
+      .files {
+        background-color: PaleGoldenRod;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size:20px;
+        padding-left:200px;
+        padding-right:200px;
+        padding-bottom:50px;
+      }
+      .inputfile {
+        background-color: OliveDrab;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size:25px;
+        padding-left:50px;
+        padding-right:50px;
+        padding-top:20px;
+      }
+      .result {
+        background-color:GoldenRod;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        font-size:30px;
+        text-align: center;
+        padding:10px;
+      }
+      .last {
+        background-color: DarkSlateGray;
+        color:honeydew;
+        padding:10px;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class = "heads">
+      <div class="login">
+        <div class = "head">
+          <h1 class = "Heading" style="text-align:center">Total Revolving Credit Prediction</h1>
+        </div>
+                                    <!-- Main Input For Receiving Query to our ML -->
+                                    <!-- Accepting entries by column manually --> 
+        <div class = "files"> 
+          <b>
+            <p style = "font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; font-size:27px;padding-left:50px;padding-right:50px;">For Predicting Total Revolving Credit, Please Provide Below Details:</p>
+            <form method="post" action="RevolvingCreditValue"> 
+              {% csrf_token %}
+         
+              <div class="form-group">
+    
+                  Loan_Amount:
+                    <input class="form-control" type="number" name="loan_amnt ">
+                  
+                  Rate_of_interest:
+                    <input class="form-control" type="number" name="Rate_of_intrst" step=0.01>
+                  
+                  Annual_Income:
+                    <input class="form-control" type="number" name="annual_inc" step=0.01>
+                  
+                  Debt_Income_Ratio:
+                    <input class="form-control" type="number" name="debt_income_ratio" step=0.01>
+      
+                  Numb_Credit:
+                    <input class="form-control" type="number" name="numb_credit">
+      
+                  Total_Credits:
+                    <input class="form-control" type="number" name="total_credits">
+                 
+                  Total_Received_Interest:
+                    <input class="form-control" type="number" name="total_rec_int" step=0.01>
+      
+                  Total_Current_Balance:
+                    <input class="form-control" type="number" name="tot_curr_bal"> 
+        
+              </div>
+	            <br>
+	            <br>
+                <button type="submit" class="btn btn-primary btn-block btn-large">Revolving Credit</button>
+            </form>
+              {% if prediction_text %}
+                <h1 style="text-align:center">{{prediction_text}}</h1>
+              {% endif %}
+          </b>
+        </div>
+      </div>
+                                        <!-- Accepting File as Input -->
+      <div  class = "inputfile">
+        <p style="color:white;">If you have a Excel/csv file, Submit it here:</p>
+        <form action="RevolvingCredit" method = 'POST' enctype="multipart/form-data">
+          <input type="hidden" name="csrfmiddlewaretoken" value="Nu7Qjvww4xtNbpYTmgQiK671HA4nJwogJ9SaFRkPNbUVSE00WchYdsoTp7nDxz6Y">
+            <div class="form-group">
+              <input class="form-control" type = "file" name="files" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" required>
+            </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>  
+        <br>
+        <br>
+      </div>
+                                               <!--Footer Section -->  
+      
+      <footer class = "last">
+        <b>
+          <p><small>Total Revolving Credit API by Shruti Bichkunde</small></p>
+        </b>
+      </footer>
+    </div>
+  </body>
+</html>

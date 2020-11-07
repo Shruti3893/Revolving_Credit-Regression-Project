@@ -1,0 +1,1 @@
+web: gunicorn Creditproject.wsgi --log-file -

@@ -13,7 +13,7 @@ lazy-object-proxy==1.4.3
 mccabe==0.6.1
 numpy==1.18.5
 pandas==1.1.4
-pickle5 @ file:///D:/bld/pickle5_1592859470301/work
+pickle-mixin==1.0.2
 psycopg2==2.8.6
 pylint==2.6.0
 python-dateutil==2.8.1

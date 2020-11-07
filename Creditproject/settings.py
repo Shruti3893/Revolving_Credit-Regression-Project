@@ -26,7 +26,7 @@ SECRET_KEY = '#cx3+&57%^s^=_dg&lv7_7vfz&%ph$%cplwn7kg05gg&^wr)ga'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["revolving-credit.herokuapp.com"]
 
 
 # Application definition

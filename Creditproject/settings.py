@@ -29,6 +29,7 @@ SECRET_KEY = '#cx3+&57%^s^=_dg&lv7_7vfz&%ph$%cplwn7kg05gg&^wr)ga'
 DEBUG = False
 
 ALLOWED_HOSTS = ["revolving-credit.herokuapp.com"]
+ALLOWED_HOSTS = ["Shrutidb.pythonanywhere.com"]
 
 
 # Application definition

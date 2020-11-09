@@ -68,15 +68,3 @@ For Show casing the project, I used Django Framework.
 I deployed the final model on Heroku Cloud Platform. 
 
 To see my website/web-api Go to >>> [https://revolving-credit.herokuapp.com/]
-
-
-
-![template1](https://github.com/Shruti3893/Impact_Prediction/blob/main/templates/input.png)
-
-![template1](https://github.com/Shruti3893/Impact_Prediction/blob/main/templates/output.png)
-
-
-
-
-
-

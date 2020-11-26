@@ -59,7 +59,7 @@ We did Outlier Treatment via Capping and Flooring Approach. All the Outliers wer
 8) Adaboost Algorithm
 9) ElasticNet Regression
 
--Based on the Classification report, I choosed the best model as Decision Tree Regressor for the project. It gave least RMSE and comparatively high R1-score.
+-Comparing all the algorithms, I chose the best model as Decision Tree Regressor for the project. It gave least RMSE and comparatively high R1-score.
 
 ## [5. Deployment in Local System]
 For Show casing the project, I used Django Framework.

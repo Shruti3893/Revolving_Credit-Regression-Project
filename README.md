@@ -28,7 +28,7 @@ As a bank or investor who are into this revolving balance here they can charge h
 
 https://github.com/Shruti3893/Revolving_Credit-Regression-Project/blob/main/pandas_profiling_Report.html
 
-- I performed complete Visualization in Tableau to get more deep hidden Insights. Below is the link for my Tableau workbook.
+- I performed complete data Visualization in Tableau to get more deep hidden Insights. Below is the link for my Tableau workbook.
 
 https://public.tableau.com/profile/shruti.bichkunde#!/vizhome/Revolving_Credit/PurposeandAnnualInc
 

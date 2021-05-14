@@ -17,7 +17,7 @@ As a bank or investor who are into this revolving balance here they can charge h
 ## [2. DataSet Details]
 -The dataset is having Revolving Balance and associated Credit line attributes of customers. Which contains an event log extracted from Banking Sector.
 
--Dataset has 36 columns in total, in which 35 are Independent Variables and 'Tota_credit_revolving_balance' is Target Variable. 
+-Dataset has 36 columns in total, in which 35 are Independent Variables and 'Total_credit_revolving_balance' is Target Variable. 
 
 [Dataset Details.xlsx](https://github.com/Shruti3893/Revolving_Credit-Regression-Project/blob/main/Dataset%20Details.xlsx) is the provided Dataset for the Project.
 
